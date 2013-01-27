@@ -3,7 +3,7 @@ Scrumly
 
 Description
 -----------
-A light weight view of Sprint.ly data for more efficiently running stand-ups/scrums.
+A lightweight view of Sprint.ly data for more efficiently running stand-ups/scrums.
 
 Setup
 -----
@@ -28,6 +28,7 @@ ToDone
 Copyright (c) 2013 SimpleEnergy Inc.
 
 Originally built on a bus by: Aaron Frank <aaron@simpleenergy.com>
+
 Contributors:
  - Jacob Kaufman-Osborn <jacob@simpleenergy.com>
 
