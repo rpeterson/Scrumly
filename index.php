@@ -31,26 +31,26 @@
 			<table id ="someday" class="table table-condensed table-bordered table-hover items">
 			</table>
 		</div>-->
-		<div class="span3">
+		<div class="span4">
 			<h2>Backlog</h2>
 			<table id ="backlog" class="table table-condensed table-bordered table-hover items">
 			</table>
 		</div>
-		<div class="span3">
+		<div class="span4">
 			<h2>Current</h2>
 			<table id ="in-progress"  class="table table-condensed table-bordered table-hover items">
 			</table>
 		</div>
-		<div class="span3">
+		<div class="span4">
 			<h2>Complete</h2>
 			<table id="completed" class="table table-condensed table-bordered table-hover items">
 			</table>
 		</div>
-		<div class="span3">
+<!--		<div class="span3">
 			<h2>Accepted</h2>
 			<table id ="accepted" class="table table-condensed table-bordered table-hover items">
 			</table>
-		</div>
+		</div>-->
 	</div>
 	</div>
 	<div id="hidden-div" style="width:1px; height:1px; visibility:hidden; overflow:hidden">
