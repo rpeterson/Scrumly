@@ -69,7 +69,11 @@
 		  success: function(data, textStatus, xhr) {
 			html = '';
 			for (var i=0; i < data.length; i++) {
-				html += '<li><a class="user" data-user-id="'+data[i].id+'" href="#"><img alt="'+data[i].first_name+' '+data[i].last_name+'" title="'+data[i].first_name+' '+data[i].last_name+'" style="height:30px; width:30px;" src="http://www.gravatar.com/avatar/'+md5(data[i].email)+'"></a></li>';
+				if (data[i].revoked) {
+					//This should be cleaned up once revoked goes live, but until then it doesnt exist as a parameter so we should just default to showing the users.
+				}else{
+					html += '<li><a class="user" data-user-id="'+data[i].id+'" href="#"><img alt="'+data[i].first_name+' '+data[i].last_name+'" title="'+data[i].first_name+' '+data[i].last_name+'" style="height:30px; width:30px;" src="http://www.gravatar.com/avatar/'+md5(data[i].email)+'"></a></li>';
+				}
 			};
 			$('#user-select').html(html);
 		  },
