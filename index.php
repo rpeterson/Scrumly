@@ -105,7 +105,7 @@
 						if (data.length) {
 							for (var j=0; j < data.length; j++) {
 								console.log(data[j]);
-								html += '<tr data-href="'+data[j].short_url+'" class="';
+								html += '<tr data-item-id="'+data[j].number+'" class="item ';
 								if (data[j]['type']== 'story') {
 									html += 'success'
 								}
@@ -118,7 +118,8 @@
 								if (data[j]['type'] == 'test') {
 									html += 'info'
 								}
-								html += '"><td style="font-weight:bold;">'+data[j].score+'</td><td>'+data[j].title+'</td></tr>';
+								html += '"><td style="font-weight:bold;">'+data[j].score+'</td>';
+								html += '<td>'+data[j].title+' (<a href="'+data[j].short_url+'">#'+data[j].number+'</a>)</td></tr>';
 							}
 						}else{
 							html = '<tr><td>No items</td></tr>';
@@ -128,11 +129,49 @@
 					  error: function(xhr, textStatus, errorThrown) {
 						$('#'+type).html('');
 					  }
-					});	
+					});
 				}
 				table_populate_function($(this), type);
 			};
-
+		});
+		$(document).on('click', '.item', function(e) {
+			$('.details').remove();
+			$item = $(this);
+			$.ajax({
+				url: '/subitems.php',
+				type: 'GET',
+				dataType: 'json',
+				data: {item_id: $(this).data('item-id')},
+				success: function(data, textStatus, xhr) {
+					if (data.length) {
+						for (var j=0; j < data.length; j++) {
+							console.log(data[j]);
+							html = '<tr class="details">';
+							html += '<td style="font-weight:bold;">'+data[j].score+'</td>';
+							html += '<td>';
+							switch (data[j].status) {
+							case "backlog":
+								html += '&#10007;';
+								break;
+							case "in-progress":
+								html += '&#9658;';
+								break;
+							case "completed":
+								html += '&#10003;';
+								break;
+							case "accepted":
+								html += '&#9996;';
+							}
+							html += ' '+data[j].title+' (#'+data[j].number+')</td></tr>';
+							$item.after(html);
+						}
+					}else{
+						$item.after('<tr class="details"><td colspan="2">No sub-items found.</td></tr>');
+					}
+				},
+				error: function(xhr, textStatus, errorThrown) {
+				}
+			});
 		});
 	});
 </script>
