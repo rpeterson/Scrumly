@@ -166,7 +166,7 @@
 							case "accepted":
 								html += '&#9996;';
 							}
-							html += ' '+data[j].title+' (#'+data[j].number+')</td></tr>';
+							html += ' '+data[j].title+' (<a href="'+data[j].short_url+'">#'+data[j].number+'</a>)</td></tr>';
 							$item.after(html);
 						}
 					}else{
