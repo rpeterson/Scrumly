@@ -9,7 +9,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-	<script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
+	<script src="https://raw.github.com/wbond/md5-js/master/md5.js"></script>
   </head>
   <body>
 	<div class="navbar">
